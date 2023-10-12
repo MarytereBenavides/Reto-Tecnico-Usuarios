@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+  margin: 1rem;
+}
+
+.infoUser{
+background-color: rgb(87, 170, 218);
+border: 1px solid black;
+border-radius: 5px;
+padding: 0 1rem 1rem 1rem;
+margin: 1rem;
+}
+.userInformation{
+  display: flex;
+  flex-direction: row;
+  grid-gap: 10px;
+  justify-content: center;
+}
+.allUsers{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+grid-row-gap: 10px;
+}
+.allUsers div{
+  border: 1px solid black;
+border-radius: 5px;
+padding: 1rem;
+}
+.dataUser p{
+  text-align: left;
+
+}
+.allUsers div:hover{
+ background-color: coral;
+}
