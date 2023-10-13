@@ -9,27 +9,27 @@ function App() {
   const [users, setUsers] = useState([{}])
   const [userSelected, setuserSelected] = useState({})
   const [info, setInfo] = useState(false)
+  const[loading, setLoading] = useState(false)
 
   function selectUser(id) {
-    console.log(id, 'id')
     userInformation(id)
     .then((response) => {setuserSelected(response)
       setInfo(true) })
 
 }
-
-
   useEffect(() => {
     fetchUserData()
-      .then((response) => setUsers(response))
+      .then((response) => {setUsers(response)
+        setLoading(true) })
   }, [])
-
 
   return (
     <div className="App">
     <h1>Usuarios</h1>
+    <div className='sectionUsers'>
    {info===true ? <InfoUser userSelected={userSelected}></InfoUser> : (<></>)}
-    <Usuarios users={users} selectUser={selectUser}></Usuarios>
+   {loading===true ? <Usuarios users={users} selectUser={selectUser}></Usuarios>: (<>Cargando</>)}
+    </div>
     </div>
   );
 }
